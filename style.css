@@ -1,0 +1,145 @@
+*{
+    margin:0;
+    padding:0;
+}
+h1{
+    font-size:4em;
+    font-family:fantasy;
+    text-align:center;
+    color:brown;
+    padding:100px;
+}
+.hero{
+    height:100vh;
+    width:100%;
+    background-image:url(./img/sky.jpg);
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    overflow-x:hidden;
+}
+.highway{
+    height:200px;
+    width:600%;
+    display:block;
+    background-image:url(./img/road.jpg);
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:1;
+    background-repeat:repeat-x;  /* background image should be repeated horizontally (along the x-axis) */
+    animation:highway 7s linear infinite;
+}
+@keyframes highway {
+    100%{
+        transform:translateX(-3900px);
+        /* translateX moves the element horizontally by -3400 pixels. This kind of animation is often used for creating a continuous scrolling effect. */
+    }
+}
+.city{
+    height:250px;
+    width:500%;
+    background-image:url(./img/city.png);
+    position:absolute;
+    z-index:1;
+    bottom:200px;
+    right:0;
+    left:0;
+    display:block;
+    background-repeat:repeat-x;
+    animation: city 20s linear infinite;
+}
+@keyframes city {
+    100%{
+        transform: translateX(-1400px);
+    }
+}
+.car{
+    width:400px;
+    left:50%;
+    bottom:100px;
+    position:absolute;
+    transform:translateX(-50%);
+    position:absolute;
+    z-index:2;
+}
+.car img{
+    width:100%;
+    animation:car 1s linear infinite;
+}
+/* applies the "car" animation to the image. The animation lasts for 1 second, has a linear timing function, and repeats infinitely. */
+@keyframes car{
+    100%{
+        transform:translateY(-1px);
+        /* 100%: At the end of the animation, the image is translated vertically by -1 pixel. */
+    }
+    50%{
+        transform:translateY(1px);
+        /* 50%: At the midpoint of the animation, the image is translated vertically by 1 pixel. */
+    }
+    0%{
+        transform:translateY(-1px)
+        /* 0%: At the beginning of the animation, the image is translated vertically by -1 pixel. */
+
+    }
+}
+.wheel{
+    left:50%;
+    bottom:181px;
+    transform:translateX(-50%);
+    position:absolute;
+    z-index:2; 
+}
+.wheel img{
+    width:72px;
+    height:72px;
+    animation:wheel 0.7s linear infinite;
+}
+.back-wheel{
+    left:-165px;
+    position:absolute;
+}
+.front-wheel{
+    left:80px;
+    position:absolute;
+}
+@keyframes wheel{
+    100%{
+        transform:rotateZ(360deg);
+    }
+}
+/* Media query for mobile devices */
+@media only screen and (max-width: 500px) {
+    .car {
+        width:380px;
+        bottom: 100px; /* Adjust the distance from the bottom for smaller screens */
+    }
+
+    .wheel {
+        bottom: 127px; /* Adjust the distance from the bottom for smaller screens */
+        width:50px;
+        height:50px;
+    }
+    .back-wheel{
+        left:-133px;
+        position:absolute;
+    }
+    .front-wheel{
+        left:99px;
+        position:absolute;
+    }
+    .highway {
+        width:2000%;
+        height: 200px;
+    }
+
+    .city {
+        width:2000%;
+        height: 250px;
+    }
+    h1{
+        font-size:3.2em;
+    }
+
+}
